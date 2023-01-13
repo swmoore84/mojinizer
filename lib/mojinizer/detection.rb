@@ -33,7 +33,8 @@ module Mojinizer
   end
 
   def moji_type?(type)
-    self.each_char { |c| return false unless Moji.type?(c, type) }
+    string = self.gsub("ー", "")
+    string.each_char { |c| return false unless Moji.type?(c, type) }
     return true
   end
 
